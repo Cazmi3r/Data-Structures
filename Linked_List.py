@@ -31,12 +31,14 @@ class Linked_List():
       node_to_remove = None
       current_node = self.head_node
 
+      #if head node is the node to remove
       if current_node is not None:
         if current_node.get_value() == value_to_remove:
             node_to_remove = current_node
             self.head_node = self.head_node.get_next_node()
-            return node_to_remove.get_value()
+            return True
 
+      #find the node to remove
       while current_node is not None:
           next_node = current_node.get_next_node()
           if next_node is not None:
@@ -45,10 +47,12 @@ class Linked_List():
                 break
           current_node = current_node.get_next_node()
 
+      #check to see if the value to remove is in the list
       if node_to_remove is not None:
         current_node.set_next_node(next_node.get_next_node())
-        return node_to_remove.get_value()
+        return True
 
+      #return false if the value to remove is not in the list
       return False
 
   def stringify_list(self):
@@ -79,5 +83,5 @@ class Linked_List():
           nth_last_pointer = linked_list.head_node
         else:
           nth_last_pointer = nth_last_pointer.get_next_node()
-          
+
     return nth_last_pointer
