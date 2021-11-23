@@ -28,11 +28,13 @@ class Linked_List():
       while current_node is not None:
           next_node = current_node.get_next_node()
           if next_node.get_value() == value_to_remove:
-              current_node.set_next_node(next_node.get_next_node)
+              current_node.set_next_node(next_node.get_next_node())
               break
           current_node = current_node.get_next_node()
-      current_node.set_next_node(next_node.get_next_node())
-      return True
+      if node_to_remove is not None:
+        current_node.set_next_node(next_node.get_next_node())
+        return node_to_remove.get_value()
+      return False
   def stringify_list(self):
       string_list = ""
       if self.head_node is None:
