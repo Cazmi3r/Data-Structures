@@ -43,6 +43,7 @@ class Linked_List():
           next_node = current_node.get_next_node()
           if next_node is not None:
             if next_node.get_value() == value_to_remove:
+                node_to_remove = current_node
                 current_node.set_next_node(next_node.get_next_node())
                 break
           current_node = current_node.get_next_node()
