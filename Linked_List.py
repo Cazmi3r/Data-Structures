@@ -23,13 +23,17 @@ class Linked_List():
   def remove_node(self, value_to_remove):
       node_to_remove = None
       current_node = self.head_node
-      if current_node.get_value() == value_to_remove:
-          self.head_node = self.head_node.get_next_node()
+      if current_node is not None:
+        if current_node.get_value() == value_to_remove:
+            node_to_remove = current_node
+            self.head_node = self.head_node.get_next_node()
+            return node_to_remove.get_value()
       while current_node is not None:
           next_node = current_node.get_next_node()
-          if next_node.get_value() == value_to_remove:
-              current_node.set_next_node(next_node.get_next_node())
-              break
+          if next_node is not None:
+            if next_node.get_value() == value_to_remove:
+                current_node.set_next_node(next_node.get_next_node())
+                break
           current_node = current_node.get_next_node()
       if node_to_remove is not None:
         current_node.set_next_node(next_node.get_next_node())
