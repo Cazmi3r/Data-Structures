@@ -3,22 +3,16 @@ class Node():
         self.value = value
         self.next_node = next_node
         self.prev_node = prev_node
-
     def set_prev_node(self, new_node):
         self.prev_node = new_node
-
     def get_prev_node(self):
         return self.prev_node
-
     def set_next_node(self, new_node):
         self.next_node = new_node
-
     def get_next_node(self):
         return self.next_node
-
     def set_value(self, new_value):
         self.value = new_value
-
     def get_value(self):
         return self.value
 
@@ -37,8 +31,7 @@ class Doubly_Linked_List():
         self.head_node = new_head
 
         if self.tail_node == None:
-            self.tail_node = new_head
-    
+            self.tail_node = new_head  
     def add_to_tail(self, new_value):
         new_tail = Node(new_value)
         current_tail = self.tail_node
@@ -50,8 +43,7 @@ class Doubly_Linked_List():
         self.tail_node = new_tail
 
         if self.head_node == None:
-            self.head_node = new_tail
-    
+            self.head_node = new_tail 
     def remove_head(self):
         removed_head = self.head_node
 
@@ -67,7 +59,6 @@ class Doubly_Linked_List():
             self.remove_tail()
         
         return removed_head.get_value()
-    
     def remove_tail(self):
         removed_tail = self.tail_node
 
@@ -83,7 +74,6 @@ class Doubly_Linked_List():
             self.remove_head()
         
         return removed_tail.get_value()
-
     def remove_by_value(self, value_to_remove):
         node_to_remove = None
         current_node = self.head_node
@@ -109,7 +99,6 @@ class Doubly_Linked_List():
             next_node.set_prev_node(prev_node)
 
         return node_to_remove
-    
     def stringify_list(self):
         string_list = ""
         current_node = self.head_node
@@ -119,16 +108,3 @@ class Doubly_Linked_List():
                 string_list += str(current_node.get_value()) + "\n"
             current_node = current_node.get_next_node()
         return string_list
-
-#----Testing----
-test_list = Doubly_Linked_List()
-
-for i in range(50):
-    test_list.add_to_tail(i)
-
-test_list.add_to_head(-1)
-test_list.remove_head()
-test_list.remove_by_value(0)
-test_list.remove_tail()
-print("-----testing doubly linked lists-----")
-print(test_list.stringify_list())
