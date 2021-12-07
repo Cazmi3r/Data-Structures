@@ -19,16 +19,20 @@ class Queue():
         current_node = self.head_node
         if current_node == None:
             self.head_node = new_node
+            print("added {} to the stack".format(value))
             return
         while current_node.get_next_node() != None:
             current_node = current_node.get_next_node()
         current_node.set_next_node(new_node)
+        print("added {} to the stack".format(value))
 
     def dequeue(self): # return the first item in the Queue then remove it
         if self.head_node != None:
             value_to_return = self.head_node.get_value()
             self.head_node = self.head_node.get_next_node()
+            print("removed {} from the stack".format(value_to_return))
             return value_to_return 
+        print("The Stack is Empty")
         return False
 
     def peek(self): # return the first item in the Queue but don't remove it
