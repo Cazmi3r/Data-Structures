@@ -12,7 +12,7 @@ class Node():
         return self.next_node
 class Queue():
     def __init__(self):
-        
+
         self.head_node = None
 
     def enqueue(self, value): # and something to the queue
@@ -29,7 +29,7 @@ class Queue():
 
         current_node.set_next_node(new_node)
 
-    def pop(self): # return the first item in the Queue then remove it
+    def dequeue(self): # return the first item in the Queue then remove it
 
         if self.head_node != None:
             value_to_return = self.head_node.get_value()
