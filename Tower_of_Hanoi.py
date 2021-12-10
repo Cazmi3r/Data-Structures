@@ -1,4 +1,4 @@
-from stack import Stack
+from Stack import Stack
 
 print("\nLet's play Towers of Hanoi!!")
 
@@ -36,7 +36,7 @@ num_user_moves = 0
 while right_stack.get_size() < num_disks:
   print("\n\n\n...Current Stacks...")
   for stack in stacks:
-    stack.print_items()
+    print(stack.print_items()[::-1])
   while True:
     print("\nWhich stack do you want to move from?\n")
     from_stack = get_input()
